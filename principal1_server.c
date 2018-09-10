@@ -25,11 +25,11 @@ calculadora_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 			/*************acuario ***********/
 	  if(d>=20 && m==1){
 	       	//Enero 20 – Febrero 18-> acuario
-	        strcpy(cadena, "sus signo es acuario");
+	        strcpy(cadena, "Su signo es acuario");
     	}
 		else if(d<=18 && m==2){
 			//Enero 20 – Febrero 18-> acuario
-	        strcpy(cadena,"sus signo es acuario");
+	        strcpy(cadena,"Su signo es acuario");
 		}
 		
 		
@@ -37,76 +37,76 @@ calculadora_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 		/*************piscis ***********/
 		else if(d>=19 && m==2){
 	     	//Febrero 19 – Marzo 20
-	        strcpy(cadena,"sus signo es piscis");
+	        strcpy(cadena,"Su signo es piscis");
     	}
 	    
 	    else if(d<=20 && m==3){
 			//Febrero 19 – Marzo 20
-	        strcpy(cadena,"sus signo es piscis");
+	        strcpy(cadena,"Su signo es piscis");
 		}
 		
 		
 		/************* aries ***********/
 		else if(d>=21 && m==3){
 		      //Marzo 21 –Abril 19
-	            strcpy(cadena,"sus signo es aries");
+	            strcpy(cadena,"Su signo es aries");
       	}
 	    else if(d<=19 && m==4){
 		    	//Marzo 21 –Abril 19
-	            strcpy(cadena,"sus signo es aries");
+	            strcpy(cadena,"Su signo es aries");
 		}
 	
 	
 	   		/************* tauro ***********/
 		 else if(d>=20 && m==4){
 	          //Abril 20 – Mayo 20-> tauro
-	          strcpy(cadena,"sus signo es tauro");
+	          strcpy(cadena,"Su signo es tauro");
 	    }
 	    else if(d<=20 && m==5){
 		        //Abril 20 – Mayo 20-> tauro
-	            strcpy(cadena,"sus signo es tauro");
+	            strcpy(cadena,"Su signo es tauro");
 		}
 		
 		/************* geminis ***********/
 		else if(d>=21 && m==5){
 	        		//Mayo 21 – Junio 20 -> geminis
-	             strcpy(cadena,"sus signo es geminis");
+	             strcpy(cadena,"Su signo es geminis");
      	}
 	    else if(d<=20 && m==6){
 		        	//Mayo 21 – Junio 20 -> geminis
-	                strcpy(cadena,"sus signo es geminis");
+	                strcpy(cadena,"Su signo es geminis");
 		}
 
 
        	/************* cancer ***********/
 		else if(d>=21 && m==6){
 		        	//Junio 21 – Julio 22-> cancer
-	            strcpy(cadena,"sus signo es cancer");   
+	            strcpy(cadena,"Su signo es cancer");   
     	}	
     	else if(d<=22 && m==7){
 		         	//Junio 21 – Julio 22-> cancer
-	            strcpy(cadena,"sus signo es cancer");  
+	            strcpy(cadena,"Su signo es cancer");  
 		}
 		
 		/*************leo ***********/
 	     else if(d>=23 && m==7){
 		            //Julio 23–Agosto 22-> leo
-	                strcpy(cadena,"sus signo es leo"); 
+	                strcpy(cadena,"Su signo es leo"); 
     	}
 	    else if(d<=22 && m==8){
 	           		  //Julio 23–Agosto 22-> leo
-	            strcpy(cadena,"sus signo es leo"); 
+	            strcpy(cadena,"Su signo es leo"); 
 		}
 	
 	
 	   /************* virgo **********************/
 		else if(d>=23 && m==8){
 		       //Agosto 23 – Septiembre 22-> virgo
-	           strcpy(cadena,"sus signo es virgo");
+	           strcpy(cadena,"Su signo es virgo");
     	}
     	else if(d<=22 && m==9){
 			//Agosto 23 – Septiembre 22-> virgo
-	           strcpy(cadena,"sus signo es virgo");
+	           strcpy(cadena,"Su signo es virgo");
 		}
 		
 		
@@ -114,51 +114,51 @@ calculadora_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 		/************ libra ************/
 		else if(d>=23 && m==9){
 		    //Septiembre 23 – Octubre 22-> libra
-	        strcpy(cadena,"sus signo es libra");
+	        strcpy(cadena,"Su signo es libra");
 	    }
 	    else if(d<=22 && m==10){
 		   //Septiembre 23 – Octubre 22-> libra
-	        strcpy(cadena,"sus signo es libra");
+	        strcpy(cadena,"Su signo es libra");
 		}
 	
 	/****************** escorpion ********************/
 		else if(d>=23 && m==10){
 		    //Octubre 23 – Noviembre 21-> escorpion
-	        strcpy(cadena,"sus signo es escorpion");
+	        strcpy(cadena,"Su signo es escorpion");
 	    }
 	     else if(d<=21 && m==11){
 		  //Octubre 23 – Noviembre 21-> escorpion
-	        strcpy(cadena,"sus signo es escorpion");
+	        strcpy(cadena,"Su signo es escorpion");
 		}
 		
 		/*****************sagitario**********************/
 		else if(d>=22 && m==11){
 		   	//Noviembre 22 - Diciembre 21-> sagitario
-	        strcpy(cadena,"sus signo es sagitario");
+	        strcpy(cadena,"Su signo es sagitario");
      	}
      	else if(d<=22 && m==12){
 			//Noviembre 22 - Diciembre 21-> sagitario
-	        strcpy(cadena,"sus signo es sagitario");
+	        strcpy(cadena,"Su signo es sagitario");
 		}
 	   
 	    /********************* sagitario ***********************/
 		else if(d>=20 && m==1){
 		  //Enero 20 – Febrero 18-> acuario
-	      strcpy(cadena,"sus signo es acuario");
+	      strcpy(cadena,"Su signo es acuario");
 	    }
 	    else if(d<=18 && m==2){
 			//Enero 20 – Febrero 18-> acuario
-	        strcpy(cadena,"sus signo es acuario");
+	        strcpy(cadena,"Su signo es acuario");
 		}
 	
 	 /**************** capricornio ******************/
 		else if(d>=22 && m==12){
 		    //Diciembre 22 – Enero 19-> capricornio
-	        strcpy(cadena,"sus signo es capricornio");
+	        strcpy(cadena,"Su signo es capricornio");
 	    }
 	    else if(d<=19 && m==1){
 			 //Diciembre 22 – Enero 19-> capricornio
-	        strcpy(cadena,"sus signo es capricornio");
+	        strcpy(cadena,"Su signo es capricornio");
 		}
 	/***************************/
     result=strdup(cadena);
@@ -272,7 +272,7 @@ case 3:
     //printf("geminis");
 
     /******** enviar consulta SQL *****/
-	if (mysql_query(conn, "select nombre,color,personalidad,elemento,semanal from signo where id_signo=8"))
+	if (mysql_query(conn, "select nombre,color,personalidad,elemento,semanal from signo where id_signo=11"))
 	{ /* definicion de la consulta y el origen de la conexion */
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		exit(1);
@@ -584,7 +584,9 @@ char **
 compatibilidad_horoscopo_1_svc(int *argp, struct svc_req *rqstp)
 {
 	static char * result;
-
+    //int respt,a;
+	//a=*argp;
+	//char resultado[9999];
 	/*
 	 * insert server code here
 	 */
@@ -596,10 +598,484 @@ char **
 horoscopo_chino_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 {
 	static char * result;
+	int a;
+	a=argp->a;
+	char resultado[9999];
 
 	/*
 	 * insert server code here
 	 */
+     /******************conexion**********************/
+	MYSQL *conn,mysql; /* variable de conexión para MySQL */
+	MYSQL_RES *res; /* variable que contendra el resultado de la consuta */
+	MYSQL_ROW row; /* variable que contendra los campos por cada registro consultado */
+	char *server = "127.0.0.1"; /*direccion del servidor 127.0.0.1, localhost o direccion ip */
+	char *user = "root"; /*usuario para consultar la base de datos */
+	char *password = ""; /* contraseña para el usuario en cuestion */
+	char *database = "horoscopo"; /*nombre de la base de datos a consultar */
+	conn = mysql_init(&mysql); /*inicializacion a nula la conexión */
+  	mysql_options(&mysql, MYSQL_SET_CHARSET_NAME, "utf8");
+	mysql_options(&mysql, MYSQL_INIT_COMMAND, "SET NAMES utf8");
 
+	/* conectar a la base de datos */
+	if (!mysql_real_connect(conn, server, user, password, database, 0, NULL, 0))
+	{ /* definir los parámetros de la conexión antes establecidos */
+		fprintf(stderr, "%s\n", mysql_error(conn)); /* si hay un error definir cual fue dicho error */
+		exit(1);
+	}
+/*************************************************/
+
+//int signo;
+/*codigo en proceso de desarrollo*/
+
+
+/*conexion a la base de datos*/
+if (a%12==0)
+{
+
+     //printf("Tu Horoscopo chino corresponde al Mono\n");
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=12"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+          //printf("Descripcion:%s\t\n\n ",row[0]);
+          //printf("Planeta:%s\t\n\n",row[1]);
+          //printf("Elemento:%s\t\n\n",row[2]);
+          //printf("Hora de influencia:%s\t\n\n",row[3]);
+          //printf("Personalidad:%s\t\n\n",row[4]);
+          //printf("Signo compatible:%s\t\n\n",row[5]);
+
+
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==1)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Perro \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=11"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==2)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Cerdo \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=10"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==3)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde a la Rata\n ");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=9"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==4)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde a la Rata \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=8"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+
+}
+
+else if (a%12==5)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde a la Rata\n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=7"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==6)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Tigre\n ");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=6"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+
+}
+
+else if (a%12==7)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Conejo \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=5"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==8)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Dragon \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=4"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==9)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde a la Serpiente \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=3"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+
+else if (a%12==10)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde al Caballo \n");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=2"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+
+else if (a%12==11)
+{
+	/* code */
+	//printf("Tu Horoscopo chino corresponde a La Cabra \n ");
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select nombre,descripcion,planeta,elemento,hora_influencia,personalidad,signo_compatible from signo_chino where id=1"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+    
+     res=mysql_use_result(conn);
+     //printf("Nombre\t\tcolor\n");
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+        strcat(resultado, "\nNombre: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nDescripcion: ");
+		strcat(resultado, row[1]);
+		strcat(resultado, "\nPlaneta: ");
+		strcat(resultado, row[2]);
+		strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[3]);
+		strcat(resultado, "\nHora de influencia: ");
+		strcat(resultado, row[4]);
+		strcat(resultado, "\nPersonalidad: ");
+		strcat(resultado, row[5]);
+		strcat(resultado, "\nSigno compatible: ");
+		strcat(resultado, row[6]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}
+    result=resultado;
 	return &result;
 }

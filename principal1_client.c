@@ -21,6 +21,7 @@ principal1_1(char * host, int op) {
   struct Datosentrada horoscopo_chino_1_arg;
 
   char resultado[9999];
+ 
 
   #ifndef DEBUG
   clnt = clnt_create(host, PRINCIPAL1, PRINCIPAL1_VER, "udp");
@@ -37,11 +38,15 @@ principal1_1(char * host, int op) {
 
     system("clear");
 
-    printf("\n   Introduzca d%ca: ", 161);
+    printf("|===========================================|\n");
+    printf("|=== Calculadora de de signo del zodiaco====|\n");
+    printf("|===========================================|\n");
+    printf("\n\n");
+    printf("\n   Introduzca dia: ");
     scanf("%d", &calculadora_horoscopo_1_arg.d);
     printf("\n   Introduzca mes: ");
     scanf("%d", &calculadora_horoscopo_1_arg.m);
-    printf("\n   Introduzca a%co: ", 164);
+    printf("\n   Introduzca anio: ");
     scanf("%d", &calculadora_horoscopo_1_arg.a);
   
     result_1 = calculadora_horoscopo_1( & calculadora_horoscopo_1_arg, clnt);
@@ -49,7 +54,7 @@ principal1_1(char * host, int op) {
        clnt_perror(clnt, "call failed");
     }
 
-    sprintf(resultado,"%s", (char *) *result_1);
+    sprintf(resultado,"%s\n", (char *) *result_1);
     printf("%s", resultado);
 
     /**/
@@ -61,20 +66,26 @@ principal1_1(char * host, int op) {
   case 2:
 
     system("clear");
+    printf("|===============================|\n");
+    printf("|=== Horoscopo de la semana ====|\n");
+    printf("|===============================|\n");
+    printf("\n\n\n");
+
+
     printf("--Escoja su signo--\n");
-    printf("1.- Piscis\n");
-    printf("2.- Tauro\n");
-    printf("3.- Geminis\n");
-    printf("4.- Cancer\n");
-    printf("5.- Leo\n");
-    printf("6.- Virgo\n");
-    printf("7.- Librar\n");
-    printf("8.- Escorpion\n");
-    printf("9.- Sagitario\n");
-    printf("10.- Capricornio\n");
-    printf("11.- Acuario\n");
-    printf("12.- Aries\n");
-    printf("0.- Salir\n");
+    printf("1.- Leo \n");
+    printf("2.- Virgo\n");
+    printf("3.- Libra\n");
+    printf("4.- Escorpion \n");
+    printf("5.- Sagitario\n");
+    printf("6.- Capricornio\n");
+    printf("7.- Acuario\n");
+    printf("8.- Piscis \n");
+    printf("9.- Aries\n");
+    printf("10.-Tauro\n");
+    printf("11.-Geminis\n");
+    printf("12.-Cancer\n");
+  //  printf("0.- Salir\n");
     scanf("%i", &horoscopo_semana_1_arg);
     fflush(stdin);
 
@@ -84,7 +95,7 @@ principal1_1(char * host, int op) {
      }
      
 
-    sprintf(resultado,"%s", (char *) *result_2);
+    sprintf(resultado,"%s\n", (char *) *result_2);
     printf("%s", resultado);
     break;
 
@@ -92,6 +103,10 @@ principal1_1(char * host, int op) {
   case 3:
 
     system("clear");
+  printf("|====================================|\n");
+  printf("|=== Compatibilidad entre Signos ====|\n");
+  printf("|====================================|\n");
+  printf("\n\n\n");
     printf("--Escoja su signo--\n");
     printf("1.- Piscis\n");
     printf("2.- Tauro\n");
@@ -105,16 +120,18 @@ principal1_1(char * host, int op) {
     printf("10.- Capricornio\n");
     printf("11.- Acuario\n");
     printf("12.- Aries\n");
-    printf("0.- Salir\n");
-    scanf("%i", & compatibilidad_horoscopo_1_arg);
+  //  printf("0.- Salir\n");
+    scanf("%i",&compatibilidad_horoscopo_1_arg);
     fflush(stdin);
+
+  
 
     result_3 = compatibilidad_horoscopo_1( & compatibilidad_horoscopo_1_arg, clnt);
         if(result_3==(char ** ) NULL) {
                    clnt_perror(clnt, "call failed");
      }
 
-    sprintf(resultado,"%s", (char *) *result_3);
+    sprintf(resultado,"%s\n", (char *) *result_3);
     printf("%s", resultado);
 
     break;
@@ -122,6 +139,10 @@ principal1_1(char * host, int op) {
   case 4:
 
     system("clear");
+  printf("|=============================|\n");
+  printf("|==Conoce tu Horóscopo chino==|\n");
+  printf("|=============================|\n");
+  printf("\n\n\n");
     printf("horoscopo chino\n");
     printf("\n   Introduzca d%ca: ", 161);
     scanf("%d",&horoscopo_chino_1_arg.d);
@@ -130,7 +151,7 @@ principal1_1(char * host, int op) {
     printf("\n   Introduzca a%co: ", 164);
     scanf("%d",&horoscopo_chino_1_arg.a);
 
-    printf("Introduzca: 1) si es hombre -- 2) si es mujer\t");
+    printf("\nIntroduzca: 1) si es hombre -- 2) si es mujer: \t");
     scanf("%d",&horoscopo_chino_1_arg.genero);
 
     //horoscopo_chino(d, m, a, genero);
@@ -140,7 +161,7 @@ principal1_1(char * host, int op) {
        }
 
 
-    sprintf(resultado,"%s", (char *) *result_4);
+    sprintf(resultado,"%s\n", (char *) *result_4);
     printf("%s", resultado);
     break;
   }
@@ -171,13 +192,16 @@ main(int argc, char * argv[]) {
 
   int respt;
 
-  printf("--Servicios--\n");
+  printf("|=============================|\n");
+  printf("|====Servicios de Horoscopo===|\n");
+  printf("|=============================|\n");
+  printf("\n\n\n");
   printf("1.- Calculadora de signo del zodiaco\n");
   printf("2.- Horóscopo de la semana\n");
   printf("3.- Compatibilidad entre Signos\n");
-  printf("4.- Conoce tu Horóscopo chinoy tu galleta\n");
-  printf("5.- Salir\n");
-  printf("Respuesta: ");
+  printf("4.- Conoce tu Horóscopo chino\n");
+  //printf("5.- Salir\n");
+  printf("Respuesta:\n");
   scanf("%i", & respt);
   fflush(stdin);
 

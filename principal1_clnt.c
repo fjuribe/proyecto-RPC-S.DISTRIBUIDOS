@@ -40,13 +40,13 @@ horoscopo_semana_1(int *argp, CLIENT *clnt)
 }
 
 char **
-compatibilidad_horoscopo_1(int *argp, CLIENT *clnt)
+compatibilidad_horoscopo_1(struct Datosentrada *argp, CLIENT *clnt)
 {
 	static char *clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
 	if (clnt_call (clnt, compatibilidad_horoscopo,
-		(xdrproc_t) xdr_int, (caddr_t) argp,
+		(xdrproc_t) xdr_Datosentrada, (caddr_t) argp,
 		(xdrproc_t) xdr_wrapstring, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);

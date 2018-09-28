@@ -16,7 +16,7 @@ principal1_1(char * host, int op) {
   char * * result_2;
   int horoscopo_semana_1_arg;
   char * * result_3;
-  int compatibilidad_horoscopo_1_arg;
+  struct Datosentrada compatibilidad_horoscopo_1_arg;
   char * * result_4;
   struct Datosentrada horoscopo_chino_1_arg;
 
@@ -42,12 +42,22 @@ principal1_1(char * host, int op) {
     printf("|=== Calculadora de de signo del zodiaco====|\n");
     printf("|===========================================|\n");
     printf("\n\n");
-    printf("\n   Introduzca dia: ");
-    scanf("%d", &calculadora_horoscopo_1_arg.d);
-    printf("\n   Introduzca mes: ");
-    scanf("%d", &calculadora_horoscopo_1_arg.m);
-    printf("\n   Introduzca anio: ");
-    scanf("%d", &calculadora_horoscopo_1_arg.a);
+/****************validando entradas de fechas************************/
+      do{
+    printf("\n   Introduzca dia (1-31) : ");  
+    scanf("%d",&calculadora_horoscopo_1_arg.d);
+    }while(calculadora_horoscopo_1_arg.d < 1 || calculadora_horoscopo_1_arg.d > 31 );
+
+     do{
+    printf("\n   Introduzca mes (1-12):");
+    scanf("%d",&calculadora_horoscopo_1_arg.m);
+      }while(calculadora_horoscopo_1_arg.m < 1 || calculadora_horoscopo_1_arg.m > 12 );
+
+
+     do{
+    printf("\n   Introduzca anio (1930-2018):");
+    scanf("%d",&calculadora_horoscopo_1_arg.a);
+      }while(calculadora_horoscopo_1_arg.a < 1930 || calculadora_horoscopo_1_arg.a > 2018 );
   
     result_1 = calculadora_horoscopo_1( & calculadora_horoscopo_1_arg, clnt);
     if (result_1 == (char ** ) NULL) {
@@ -73,28 +83,30 @@ principal1_1(char * host, int op) {
 
 
     printf("--Escoja su signo--\n");
-    printf("1.- Leo \n");
-    printf("2.- Virgo\n");
-    printf("3.- Libra\n");
-    printf("4.- Escorpion \n");
-    printf("5.- Sagitario\n");
-    printf("6.- Capricornio\n");
-    printf("7.- Acuario\n");
-    printf("8.- Piscis \n");
-    printf("9.- Aries\n");
-    printf("10.-Tauro\n");
-    printf("11.-Geminis\n");
-    printf("12.-Cancer\n");
+    printf("1.- Piscis \n");
+    printf("2.- Tauro\n");
+    printf("3.- Geminis\n");
+    printf("4.- Cancer \n");
+    printf("5.- Leo\n");
+    printf("6.- Virgo\n");
+    printf("7.- Libra\n");
+    printf("8.- Escorpion \n");
+    printf("9.- Sagitario\n");
+    printf("10.-Capricornio\n");
+    printf("11.-Acuario\n");
+    printf("12.-Aries\n");
   //  printf("0.- Salir\n");
+    do{
+      printf("ingrese la opcion del 1 al 12:\n");
     scanf("%i", &horoscopo_semana_1_arg);
     fflush(stdin);
-
+ }while(horoscopo_semana_1_arg!=1 && horoscopo_semana_1_arg!=2 && horoscopo_semana_1_arg!=3 && horoscopo_semana_1_arg!=4 && horoscopo_semana_1_arg!=5 && horoscopo_semana_1_arg!=6 && horoscopo_semana_1_arg!=7 && horoscopo_semana_1_arg!=8 && horoscopo_semana_1_arg!=9 && horoscopo_semana_1_arg!=10 && horoscopo_semana_1_arg!=11 && horoscopo_semana_1_arg!=12);
      result_2 = horoscopo_semana_1( & horoscopo_semana_1_arg, clnt);
      if (result_2 == (char ** ) NULL) {
                 clnt_perror(clnt, "call failed");
      }
      
-
+    
     sprintf(resultado,"%s\n", (char *) *result_2);
     printf("%s", resultado);
     break;
@@ -108,7 +120,7 @@ principal1_1(char * host, int op) {
   printf("|====================================|\n");
   printf("\n\n\n");
     printf("--Escoja su signo--\n");
-    printf("1.- Piscis\n");
+    printf("1.- Aries\n");
     printf("2.- Tauro\n");
     printf("3.- Geminis\n");
     printf("4.- Cancer\n");
@@ -119,18 +131,33 @@ principal1_1(char * host, int op) {
     printf("9.- Sagitario\n");
     printf("10.- Capricornio\n");
     printf("11.- Acuario\n");
-    printf("12.- Aries\n");
-  //  printf("0.- Salir\n");
-    scanf("%i",&compatibilidad_horoscopo_1_arg);
-    fflush(stdin);
+    printf("12.- Piscis\n");
+    scanf("%d",&compatibilidad_horoscopo_1_arg.d);
 
-  
+
+                        system("clear");
+                  printf("--Escoja signo a comparar--\n");
+                  printf("1.- Aries\n");
+                  printf("2.- Tauro\n");
+                  printf("3.- Geminis\n");
+                  printf("4.- Cancer\n");
+                  printf("5.- Leo\n");
+                  printf("6.- Virgo\n");
+                  printf("7.- Libra\n");  
+                  printf("8.- Escorpio\n");
+                  printf("9.- Sagitario\n");
+                  printf("10.- Capricornio\n");
+                  printf("11.- Acuario\n");
+                  printf("12.- Piscis\n");
+                  printf("0.- Salir\n");
+                  scanf("%d",&compatibilidad_horoscopo_1_arg.m);
+  //  printf("0.- Salir\n");
 
     result_3 = compatibilidad_horoscopo_1( & compatibilidad_horoscopo_1_arg, clnt);
         if(result_3==(char ** ) NULL) {
                    clnt_perror(clnt, "call failed");
      }
-
+     
     sprintf(resultado,"%s\n", (char *) *result_3);
     printf("%s", resultado);
 
@@ -144,15 +171,19 @@ principal1_1(char * host, int op) {
   printf("|=============================|\n");
   printf("\n\n\n");
     printf("horoscopo chino\n");
-    printf("\n   Introduzca d%ca: ", 161);
-    scanf("%d",&horoscopo_chino_1_arg.d);
-    printf("\n   Introduzca mes: ");
-    scanf("%d",&horoscopo_chino_1_arg.m);
-    printf("\n   Introduzca a%co: ", 164);
-    scanf("%d",&horoscopo_chino_1_arg.a);
+/****************validando entradas de fechas************************/
 
-    printf("\nIntroduzca: 1) si es hombre -- 2) si es mujer: \t");
-    scanf("%d",&horoscopo_chino_1_arg.genero);
+
+
+     do{
+    printf("\n   Introduzca anio (1930-2018): ");
+    scanf("%d",&horoscopo_chino_1_arg.a);
+      }while(horoscopo_chino_1_arg.a < 1930 || horoscopo_chino_1_arg.a > 2018 );
+
+    // do{
+    //printf("\nIntroduzca: 1) si es hombre -- 2) si es mujer: \t");
+    //scanf("%d",&horoscopo_chino_1_arg.genero);
+    //}while(horoscopo_chino_1_arg.genero !=1 && horoscopo_chino_1_arg.genero !=2 );
 
     //horoscopo_chino(d, m, a, genero);
     result_4 = horoscopo_chino_1( & horoscopo_chino_1_arg, clnt);
@@ -168,9 +199,6 @@ principal1_1(char * host, int op) {
 
   /*********************************************************/
 
-  
-
-
 
   #ifndef DEBUG
   clnt_destroy(clnt);
@@ -180,6 +208,7 @@ principal1_1(char * host, int op) {
 
 int
 main(int argc, char * argv[]) {
+
   char * host;
 
   if (argc < 2) {
@@ -189,7 +218,6 @@ main(int argc, char * argv[]) {
   /*====================================================*/
 
   /********************************************/
-
   int respt;
 
   printf("|=============================|\n");
@@ -201,9 +229,11 @@ main(int argc, char * argv[]) {
   printf("3.- Compatibilidad entre Signos\n");
   printf("4.- Conoce tu Horóscopo chino\n");
   //printf("5.- Salir\n");
-  printf("Respuesta:\n");
+do{
+  printf("Respuesta(solo numeros del 1 al 4):\n");
   scanf("%i", & respt);
   fflush(stdin);
+ }while(respt!=1 && respt!=2 && respt!=3 && respt!=4);
 
   host = argv[1];
   principal1_1(host, respt);

@@ -22,7 +22,7 @@ principal1_1(struct svc_req *rqstp, register SVCXPRT *transp)
 	union {
 		struct Datosentrada calculadora_horoscopo_1_arg;
 		int horoscopo_semana_1_arg;
-		int compatibilidad_horoscopo_1_arg;
+		struct Datosentrada compatibilidad_horoscopo_1_arg;
 		struct Datosentrada horoscopo_chino_1_arg;
 	} argument;
 	char *result;
@@ -47,7 +47,7 @@ principal1_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		break;
 
 	case compatibilidad_horoscopo:
-		_xdr_argument = (xdrproc_t) xdr_int;
+		_xdr_argument = (xdrproc_t) xdr_Datosentrada;
 		_xdr_result = (xdrproc_t) xdr_wrapstring;
 		local = (char *(*)(char *, struct svc_req *)) compatibilidad_horoscopo_1_svc;
 		break;

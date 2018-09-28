@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 10-09-2018 a las 07:02:44
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.20
+-- Host: localhost
+-- Generation Time: Sep 11, 2018 at 03:29 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,177 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `horoscopo`
+-- Database: `horoscopo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `galleta`
+-- Table structure for table `comparativa`
+--
+
+CREATE TABLE `comparativa` (
+  `id_comp` int(2) NOT NULL,
+  `elementos` varchar(30) NOT NULL,
+  `analisis` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comparativa`
+--
+
+INSERT INTO `comparativa` (`id_comp`, `elementos`, `analisis`) VALUES
+(1, 'Fuego + Fuego', 'Los Aries son muy apasionados, exigentes y competitivos, por lo que es probable, que en esta relación predominen los choques de ego. Los Aires también suelen estar convencidos, que tienen razón, por lo que las discusiones entre ambos pueden ser largas y complicadas. Por todo ello su nivel de compatibilidad es regular. Se pasarán el día midiéndose y se puede establecer una relación de fuerzas constante.'),
+(2, 'Fuego + Tierra', 'La compatibilidad entre Aries y Tauro muy buena. Tauro un signo de Tierra, mientras que Aries es un signo de Fuego, por lo que las relaciones entre estos dos signos suelen estar centradas generalmente en el aspecto financiero y materialista de la vida. '),
+(3, 'Fuego + Aire', 'Aries se suele sentir atraido por la creatividad y la energía de Géminis, y esta combinación promete una gran amistad, una brillante conversación e interesantes momentos de ocio juntos. Por lo que su grado de compatibilidad puede ser muy grande.'),
+(4, 'Fuego + Aire', 'La compatibilidad entre Aries y Cáncer es regular. Cuando Cáncer empieza una relación con Aries se suele establecer entre ambos una conexión inmediata a nivel emocional. El signo de Cáncer se sentirá muy atraído por el aire apasionado, seguro y entusiasta de Aries, quien a su vez, se sentirá en paz al estar con un Cáncer. '),
+(5, 'Fuego + Fuego', 'La atracción inmediata entre estos dos signos es muy fuerte y tanto Aries como Leo se crecerán en compañía uno del otro y querrán conocer mejor a su pareja a todos los niveles: físicamente, mentalmente, emocionalmente e incluso, espiritualmente. Por lo tanto, la compatibilidad entre Aries y Leo es altísima.'),
+(6, 'Fuego + Tierra', 'La compatibilidad entre Aries y Virgo es regular. Los Virgo suelen ser bastante fríos, prácticos y a veces, críticos, lo que supone un contraste para los Aries que son rápidos, impetuosos e impulsivos. '),
+(7, 'Fuego + Aire', 'Aries y Libra son signos opuestos, lo cual puede ser bueno, al menos, al inicio de la relación por la atracción de opuestos. No obstante, a medida que el tiempo pasa la novedad desaparece, y puede que haya demasiadas diferencias para que la relación funcione a largo plazo, a menos que exista una base muy fuerte de amor y de buena voluntad por parte de ambos signos para adaptar su fuerte personalidad a la de su pareja.'),
+(8, 'Fuego + Agua', 'Es una combinación muy complicada y ambos signos deberán poner mucho de su parte, para que la relación funcione, debido a sus enormes diferencias entre sus carácteres. Sus planetas regentes, Marte y Saturno, son fuerzas diametralmente opuestas. '),
+(9, 'Fuego + Fuego', 'Tanto Aries como Sagitario son signos de Fuego, por lo que a esta combinación no le faltará nada de variedad y emoción, pudiendo ser, en ocasiones, explosiva. La relación despegará directamente desde su comienzo. Su grado de compatibilidad es muy alto.'),
+(11, 'Fuego + Tierra', 'Es una combinación muy complicada y su grado de compatibilidad es bajo. Ambos signos deberán poner mucho de su parte para que la relación funcione, debido a sus enormes diferencias entre sus carácteres. Sus planetas regentes, Marte y Saturno, son fuerzas diamétricamente opuestas. '),
+(12, 'Fuego + Aire', 'Aries y Acuario tienen mucho en común y un grado de compatibilidad muy alto. Ambos signos son independientes, humanitarios, optimistas y entusiastas. Les gustan las emociones fuertes, la valentía y carácter progresivo de los Acuario tienden a atraer mucho a los Aries. '),
+(13, 'Fuego + Agua', 'Una pareja Aries y Piscis es una combinación difícil con bastantes retos, porque a pesar de una fuerte atracción inicial, existen diferencias importantes entre estos dos signos, que tendrán que ser superadas para que una relación de pareja funcione a largo plazo. Si logran formar una pareja estable, es probable que sea una relación fuera de lo común.'),
+(14, 'Fuego + Tierra', 'La compatibilidad entre Aries y Tauro muy buena. Tauro un signo de Tierra, mientras que Aries es un signo de Fuego, por lo que las relaciones entre estos dos signos suelen estar centradas generalmente en el aspecto financiero y materialista de la vida. '),
+(15, 'Tierra + Tierra', 'La compatibilidad entre Tauro y Tauro es muy alta. Tauro es el signo de la tierra y esto constituye una base muy sólida para la relación. Hay algo simple y franco en los Tauro. Son prácticos y no se complican demasiado, por lo que son muy compatibles en una relación.'),
+(16, 'Tierra + Aire', 'La compatibilidad entre Géminis y Tauro no es muy alta porque aunque los planetas Venus y Mercurio, que rigen sobre Tauro y Géminis, respectivamente, se llevan bien, hay algunas diferencias importantes en las motivaciones y la personalidad básicas de ambos signos. '),
+(17, 'Tierra + Agua', 'Esta combinación Cáncer - Tauro es una de las más compatibles tanto para Cáncer como para Tauro. La gran ventaja es, que estos dos signos disfrutan demostrando su afecto hacia su pareja, y cuando los dos están de buen humor, es una combinación irresistible.'),
+(18, 'Tierra + Fuego', 'La compatibilidad entre Leo y Tauro es alta, siempre y cuando los dos signos asuman sus diferencias y las gestionen de forma inteligente y evitando su habitual terquedad.\r\n\r\nTauro y Leo ofrecen una combinación inusual de energías. Sus astros regentes, el Sol y Venus, son bastante diferentes. Sin embargo, hay una atracción natural inmediata y evidente entre ambos; un magnetismo natural, con mucha pasión entre ambos signos.'),
+(19, 'Tierra + Tierra', 'Una combinación con compatibilidad muy alta, en realidad Tauro y Virgo tiene todas posibilidades, para tener una relación feliz y estable durante muchos años. Tauro y Virgo pueden disfrutar de una vida con mucha armonía. A ninguno de los dos les gustan las extravagancias ni las inconsistencias. En su relación no faltará dedicación y lealtad. '),
+(20, 'Tierra + Aire ', 'La compatibilidad entre Libra y Tauro no es muy alta, por no decir baja y recomendamos mucho esfuerzo y comprensión por parte de los dos para hacer funcionar esta relación. Lo bueno es que a Libra y a Tauro les gustan los retos - y hacer perdurar esta relación supone, sin duda, un reto muy interesante. '),
+(21, 'Tierra + Agua', 'La compatibilidad entre Escorpio y Tauro es más alta de lo que podría parecer. Tauro y Escorpio son signos zodiacales opuestos y por eso, a veces, se atraen mutuamente sin remedio. Su primer encuentro podría ser sencillamente increíble y a Tauro le podría sorprender la pasión, que despierta su presencia. Dada la conexión que existe entre Marte y Venus hay muchas probabilidades de que surja una fuerte atracción magnética entre los dos signos Tauro y Escorpio. '),
+(22, 'Tierra + Fuego', 'La compatibilidad entre Sagitario y Tauro es bastante baja porque son signos muy diferentes. Tauro es práctico y se preocupa por lo que puede tocar y sentir (el mundo de las cosas reales). '),
+(23, 'Tierra + Tierra', 'La compatibilidad entre Capricornio y Tauro es muy alta y pueden esperar ser muy felices juntos. El sentido práctico de Capricornio se lleva bien con la actitud realista de Tauro. Su conexión inicial con Capricornio será buena y Tauro encontrará muchas similitudes con su pareja. '),
+(24, 'Tierra + Aire', 'La compatibilidad entre Acuario y Tauro no es muy alta debido a las incompatibilidades, que existen entre ellos. Pero sí tiene muchas posibilidades siempre y cuando ambos estén dispuestos a esforzarse para que funcione.'),
+(25, 'Tierra + Agua', 'La compatibilidad entre Piscis y Tauro es muy buena aunque sobre todo desde el punto de vista de compañerismo y actividad social. Si una pareja Tauro-Piscis decide separarse, lo más seguro es que logren conservar una excelente amistad que puede incluso llegar a incomodar a futuras parejas. '),
+(26, '', ''),
+(26, 'Fuego + Aire', 'Aries se suele sentir atraido por la creatividad y la energía de Géminis, y esta combinación promete una gran amistad, una brillante conversación e interesantes momentos de ocio juntos. Por lo que su grado de compatibilidad puede ser muy grande.'),
+(27, 'Tierra + Aire', 'La compatibilidad entre Géminis y Tauro no es muy alta porque aunque los planetas Venus y Mercurio, que rigen sobre Tauro y Géminis, respectivamente, se llevan bien, hay algunas diferencias importantes en las motivaciones y la personalidad básicas de ambos signos. '),
+(28, 'Aire + Aire', 'La compatibilidad de Géminis con Géminis es alta y lo más probable, que una pareja de dos G éminis tengan una relación llena de diversión, aventura y variedad aunque tengan que aprender virtudes como la paciencia y el compromiso para que funcione a largo plazo. '),
+(29, 'Agua + Aire', 'A primera vista los signos Cáncer y Géminis no tienen mucha compatibilidad porque existen diferencias muy importantes entre sus objetivos y los métodos que utiliza para conseguirlos. '),
+(30, 'Aire + Fuego', 'La compatibilidad entre Leo y Géminis es bastante alta y en esta relación ambos descubrirán tener mucho en común. Tanto a Géminis como a Leo les encanta divertirse.\r\n\r\nLos dos tienen una naturaleza aventurera y disfrutan de la vida. Se encontrarán mutuamente fascinantes y disfrutarán en compañía del otro.'),
+(31, 'Tierra + Aire', 'La compatibilidad de Géminis con Virgo es bastante alta, sobre todo si los dos se esfuerzan en comprender y escuchar a su pareja. Las personas del signo Geminis suelen ser inteligentes, racionales y prácticas. Igual que Virgo, tienden a ver las cosas tales como son. Estos dos signos tendrán una capacidad de comunicación alta, sobre todo a nivel intelectual. '),
+(32, 'Aire + Aire', 'Géminis y Libra presentan una excelente compatibilidad, por lo que si esta es la combinación de tu relación hay muchas probabilidades de que seas extremadamente feliz durante mucho tiempo.\r\n\r\nIncluso se trata de una combinación tan afortunada, que se podría decir que existe un toque de magia entre ambos signos. En ocasiones Libra y Géminis se entienden tan bien, que ni siquiera necesitan palabras. '),
+(33, 'Aire + Agua', 'La compatibilidad entre Escorpio y Géminis es bastante baja y ambas partes de la relación deberán trabajar duramente para conseguir, que funcione. Si son lo suficientemente decididos, podría ser posible, pero deberán tener cuidado o se podrían ver envueltos en un escenario en el, que incluso dirigirse la palabra les resultaría difícil. '),
+(34, 'Aire + Fuego', 'Esta combinación de energías planetarias resulta intrigante. Sagitario es el signo opuesto a Géminis y el que resulte bien o no dependerá de la perspectiva, que tomen ambos. '),
+(35, 'Aire + Tierra', 'La compatibilidad de Capricornio con Géminis es bastante baja, dada la forma tan distinta, que tienen de enfocar la vida. A ambos signos tendrán, que hacer un gran esfuerzo para que la relación funcione a largo plazo. '),
+(36, 'Aire + Aire', 'La compatibilidad entre los signos Acuario y Géminis es muy alta, ya que ambos esperan sacar más o menos lo mismo de la vida. Tienen planteamientos muy parecidos e incluso a nivel intelectual son compatibles. Es una de las combinaciones más compatibles del zodiaco, porque la conexión kármica es muy fuerte. '),
+(37, 'Aire + Agua', 'La compatibilidad entre Piscis y Géminis no es una de las más altas de estos signos y ambos tendrán, que esforzarse para hacer, que la relación funcione. Sus elementos de aire y agua son muy distintos porque mientras, que el Aire está relacionado con la mente, el Agua está relacionado con las emociones.'),
+(38, 'Fuego + Aire', 'La compatibilidad entre Aries y Cáncer es regular. Cuando Cáncer empieza una relación con Aries se suele establecer entre ambos una conexión inmediata a nivel emocional. El signo de Cáncer se sentirá muy atraído por el aire apasionado, seguro y entusiasta de Aries, quien a su vez, se sentirá en paz al estar con un Cáncer. '),
+(39, 'Agua + Tierra', 'Esta combinación Cáncer - Tauro es una de las más compatibles tanto para Cáncer como para Tauro. La gran ventaja es, que estos dos signos disfrutan demostrando su afecto hacia su pareja, y cuando los dos están de buen humor, es una combinación irresistible.'),
+(40, 'Agua + Aire', 'A primera vista los signos Cáncer y Géminis no tienen mucha compatibilidad porque existen diferencias muy importantes entre sus objetivos y los métodos que utiliza para conseguirlos. '),
+(41, 'Agua + Agua', 'El grado de compatibilidad entre dos Cáncer es muy alto. Es una combinación muy buena, ya que los Cáncer son un signo, que hay que entender para avanzar y ¿Quién mejor para entenderse que ellos mismos? '),
+(42, 'Agua + Fuego', 'Cáncer-Leo es una combinación es muy compatible. Tanto Cáncer como Leo tienen un ego bastante frágil, son vulnerables y no encajan bien la crítica, porque se ofenden con facilidad. Ambos signos necesitan cariño y mucha atención de su pareja. '),
+(43, 'Agua + Tierra', 'Una combinación Cáncer y Virgo tiene compatibilidad muy alta. Esta es una combinación rica y fértil de dos signos femeninos del zodiaco, regidos por la Luna y por Mercurio, respectivamente. La combinación de Cáncer y Virgo produce grandes resultados a todos los niveles.'),
+(44, 'Agua + Aire', 'La compatibilidad a largo plazo entre Cáncer y Libra es una combinación de signos es bastante baja y solamente sobreviriá la pareja si hay una base de amor y pasión muy fuerte.'),
+(45, 'Agua + Agua', 'Las personas, que nacen bajo el mismo elemento suelen sentirse cómodas y atraerse entre sí. Este es el caso de Cáncer y Escorpio. Tiene un grado de compatibilidad alto. Ambos son sensibles, emocionales y cariñosos, pero Escorpio tiene un modo muy distinto de expresar el amor. El amor de Escorpio es exigente y pide mucho más a cambio de lo que da.\r\n\r\nLos Escorpio también tienden, en general, a ser menos constantes.'),
+(46, 'Agua + Fuego', 'El grado de compatibilidad entre Cáncer y Sagitario es más bien bajo. Aunque hay una posibilidad de que Cáncer y Sagitario experimenten una fuerte atracción al conocerse, la relación puede no estar destinada a funcionar a largo plazo. Cáncer es propenso a enamorarse perdidamente del fuerte carácter de Sagitario, pero una relación de amistad o profesional tiene más posibilidades de funcionar, que como pareja. '),
+(47, 'Agua + Tierra', 'La Compatibilidad entre Cáncer y Capricornio es már bien baja. A pesar de las importantes diferencias entre los signos de Cáncer y Capricornio, es posible que se establezca una relación entre los dos, aunque ambos deberán poner un poco de su parte. Mientras que los Cáncer son cariñosos y expresivos, a Capricornio le cuesta expresar sus sentimientos.'),
+(48, 'Agua + Aire', 'La combinación de los signos Cáncer y Acuario presenta muchos retos en una pareja. La compatibilidad es baja a primera vista, aunque gracias a que ambos signos son muy persistentes, si hay suficientemente amor y disposición de esforzarse, una relación duradera es difícil, pero no imposible.'),
+(49, 'Agua + Agua', 'Piscis y Cáncer tienen mucho en común, especialmente en cuanto a compatibilidad emocional. Ambos signos se entienden instintivamente entre sí y sienten las necesidades del otro. Ambos son cariñosos y dan apoyo a su pareja. '),
+(50, 'Fuego + Fuego', 'La atracción inmediata entre estos dos signos es muy fuerte y tanto Aries como Leo se crecerán en compañía uno del otro y querrán conocer mejor a su pareja a todos los niveles: físicamente, mentalmente, emocionalmente e incluso, espiritualmente. Por lo tanto, la compatibilidad entre Aries y Leo es altísima.'),
+(51, 'Tierra + Fuego', 'La compatibilidad entre Leo y Tauro es alta, siempre y cuando los dos signos asuman sus diferencias y las gestionen de forma inteligente y evitando su habitual terquedad.\r\n\r\nTauro y Leo ofrecen una combinación inusual de energías. Sus astros regentes, el Sol y Venus, son bastante diferentes. Sin embargo, hay una atracción natural inmediata y evidente entre ambos; un magnetismo natural, con mucha pasión entre ambos signos.'),
+(52, 'Aire + Fuego', 'La compatibilidad entre Leo y Géminis es bastante alta y en esta relación ambos descubrirán tener mucho en común. Tanto a Géminis como a Leo les encanta divertirse.\r\n\r\nLos dos tienen una naturaleza aventurera y disfrutan de la vida. Se encontrarán mutuamente fascinantes y disfrutarán en compañía del otro.'),
+(53, 'Agua + Fuego', 'Cáncer-Leo es una combinación es muy compatible. Tanto Cáncer como Leo tienen un ego bastante frágil, son vulnerables y no encajan bien la crítica, porque se ofenden con facilidad. Ambos signos necesitan cariño y mucha atención de su pareja. '),
+(54, 'Fuego + Fuego', 'Cuándo dos Leo se conocen, las llamas del amor y los rugidos de pasión hacen que toda la jungla tiemble de delicia. Leo, el León es el monarca del Zodiaco y la combinación real es observada con entusiasmo por los demás, ya que se exhibe para, que todos la vean. Su grado de compatibilidad es altísima.'),
+(55, 'Tierra + Fuego', 'La compatibilidad de Leo con Virgo es regular, y ambos signos tendrán, que trabajar bastante para que la relación sea duradera. La personalidad de Leo es muy distinta a la de Virgo. Leo busca ser el centro de atención, mentras que Virgo es una persona mucho más privada. '),
+(56, 'Fuego + Aire', 'El sabroso mejunje de Libra, la Balanza, y Leo, el León, es exquisito. Libra es el punto focal de la elegancia en el zodiaco. Regido por Venus, el planeta del amor y el placer sensual, Libra busca una relación con una ferviente fascinación. Libra vive para el amor y el estilo. Leo es intrépido, brillante y muy animado. Tienen un nivel de compatiblidad muy alto.'),
+(57, 'Agua + Aire', 'La compatibilidad entre Escorpio y Leo es bastante baja. La atracción es enorme, pero el choque fuertes caracteres más. El romántico Leo, un Signo de Fuego, es autosuficiente y seguro y un amante ardiente, lleno de encanto personal y magnetismo físico. mmm... Un reto maravilloso. A pesar de su bravuconería, el intrépido pero sincero Leo se verá fascinado al instante por las estrategias de Escorpio y su legendario ingenio. '),
+(58, 'Fuego + Fuego', 'El intrépido Leo y el aventurero Sagitario forman una combinación romántica natural; también pueden ser los mejores amigos. Dos signos de Fuego juntos encenderán pasiones abrasadoras en el dormitorio, dado que ambos entienden instintivamente las necesidades más profundas del otro. Su compatibilidad es muy alta.'),
+(59, 'Tierra + Fuego', 'El león y la cabra son una pareja muy improbable, pero a veces esta combinación puede funcionar muy bien. Parece haber una conexión kármica entre ambos, especialmente si están conectados por una relación familiar. Si ambos dejan a un lado su orgullo y trabajan juntos por un fin común, podría ser una relación muy gratificante. Su grado de compatibilidad podrían ser bueno.'),
+(60, 'Fuego + Aire', 'La compatibilidad entre Leo y Acuario es alta\r\n\r\nA los Acuario les gusta el calor, la generosidad y la energía de Leo mientras, que a los Leo les impresiona la capacidad intelectual y la seguridad de Acuario.\r\n\r\nLos dos signos son muy distintos, pero a pesar de sus diferencias logran atraerse e impresionarse. Son signos opuestos que se atraen o como ya se ha demostrado en Astrología, esto podría ser una ventaja en el caso de Leo y Acuario. '),
+(61, 'Fuego + Aire', 'Leo se sentirá atraído por el sexy, pero vulnerable, Piscis.\r\nPiscis también se siente atraído por el León, al percibir que Leo tiene un corazón cálido y una fuerza interior que puede estar ahí para él cuando los terrores de la noche acechen. Su compatibilidad y complementariedad pueden ser muy grandes.'),
+(62, 'Fuego + Tierra', 'La compatibilidad entre Aries y Virgo es regular. Los Virgo suelen ser bastante fríos, prácticos y a veces, críticos, lo que supone un contraste para los Aries que son rápidos, impetuosos e impulsivos. '),
+(63, 'Tierra + Tierra', 'Una combinación con compatibilidad muy alta, en realidad Tauro y Virgo tiene todas posibilidades, para tener una relación feliz y estable durante muchos años. Tauro y Virgo pueden disfrutar de una vida con mucha armonía. A ninguno de los dos les gustan las extravagancias ni las inconsistencias. En su relación no faltará dedicación y lealtad.'),
+(64, 'Tierra + Aire', 'La compatibilidad de Géminis con Virgo es bastante alta, sobre todo si los dos se esfuerzan en comprender y escuchar a su pareja. Las personas del signo Geminis suelen ser inteligentes, racionales y prácticas. Igual que Virgo, tienden a ver las cosas tales como son. Estos dos signos tendrán una capacidad de comunicación alta, sobre todo a nivel intelectual. '),
+(65, 'Agua + Tierra', 'Una combinación Cáncer y Virgo tiene compatibilidad muy alta. Esta es una combinación rica y fértil de dos signos femeninos del zodiaco, regidos por la Luna y por Mercurio, respectivamente. La combinación de Cáncer y Virgo produce grandes resultados a todos los niveles.'),
+(66, 'Tierra + Fuego', 'La compatibilidad de Leo con Virgo es regular, y ambos signos tendrán, que trabajar bastante para que la relación sea duradera. La personalidad de Leo es muy distinta a la de Virgo. Leo busca ser el centro de atención, mentras que Virgo es una persona mucho más privada. '),
+(67, 'Tierra + Tierra', 'La compatibilidad de Virgo con Virgo es muy alta y en esta relación la palabra clave es el perfeccionismo y de ahí se deriva el principal problema, que deban superar - exigencias excesivas. Virgo es tremendamente aplicado y si funcionan como pareja, juntos serán capaces de mover montañas. '),
+(68, 'Tierra + Aire', 'La compatibilidad de Libra con Virgo no es muy alta y para que funcione la relación ambos signos tendrán que transigir. No obstante, cuando funciona puede formarse una pareja muy equilibrada y muy especial, sobre todo cuando ambos logran convertir sus diferencias en un activo complementario para su pareja. '),
+(69, 'Tierra + Agua', 'La compatibilidad de Escorpio con Virgo es bastante alta, ya que la combinación de Tierra con Agua hace, que esta relación suela ser fructífera en muchos sentidos. Ambos signos conectan muy bien, porque Virgo es el signo de amistad y realización para Escorpio, mientras que Escorpio representa el signo de comunicación para Virgo. '),
+(70, 'Tierra + Fuego', 'La compatibilidad de Sagitario con Virgo no es muy alta dadas las grandes diferencias, que existen entre estos dos signos. Mientras, que Virgo presta atención a los pequeños detalles, Sagitario tiende a centrarse en la visión global. '),
+(71, 'Tierra + Tierra', 'La compatibilidad de Capricornio con Virgo es muy alta gracias a una combinación de elementos similares, que da una buena base para su relación. Virgo tendrá una compenetración inmediata con Capricornio. Por algún motivo, Capricornio parece menos serio, para Virgo que para otros signos del Zodiaco. '),
+(72, 'Tierra + Aire', 'La compatibilidad de Acuario con Virgo es una de las más bajas del Zodiaco y tendrá, que haber mucho amor para que esta relación tenga posibilidades a largo plazo. Nada es imposible y todo con esfuerzo se consigue, así que si esta es la combinación de su relación, ¡Manos a la obra!'),
+(73, 'Tierra + Agua', 'La compatibilidad de Piscis con Virgo es muy buena a pesar de una contradicción entre los dos signos. Son dos signos opuestos: algo que paradójicamente en Astrología se suele considerar como un indicador positivo de amor y matrimonio. Al mismo tiempo, sus enfoques de la vida son muy diferentes y sus personalidades también. Ambos signos son inconstantes y de humor variable.'),
+(74, 'Fuego + Aire', 'Aries y Libra son signos opuestos, lo cual puede ser bueno, al menos, al inicio de la relación por la atracción de opuestos. No obstante, a medida que el tiempo pasa la novedad desaparece, y puede que haya demasiadas diferencias para que la relación funcione a largo plazo, a menos que exista una base muy fuerte de amor y de buena voluntad por parte de ambos signos para adaptar su fuerte personalidad a la de su pareja'),
+(75, 'Tierra + Aire', 'La compatibilidad entre Libra y Tauro no es muy alta, por no decir baja y recomendamos mucho esfuerzo y comprensión por parte de los dos para hacer funcionar esta relación. Lo bueno es que a Libra y a Tauro les gustan los retos - y hacer perdurar esta relación supone, sin duda, un reto muy interesante. '),
+(76, 'Aire + Aire', 'Géminis y Libra presentan una excelente compatibilidad, por lo que si esta es la combinación de tu relación hay muchas probabilidades de que seas extremadamente feliz durante mucho tiempo.\r\n\r\nIncluso se trata de una combinación tan afortunada, que se podría decir que existe un toque de magia entre ambos signos. En ocasiones Libra y Géminis se entienden tan bien, que ni siquiera necesitan palabras. '),
+(77, 'Agua + Aire', 'La compatibilidad a largo plazo entre Cáncer y Libra es una combinación de signos es bastante baja y solamente sobreviriá la pareja si hay una base de amor y pasión muy fuerte.'),
+(78, 'Fuego + Aire', 'El sabroso mejunje de Libra, la Balanza, y Leo, el León, es exquisito. Libra es el punto focal de la elegancia en el zodiaco. Regido por Venus, el planeta del amor y el placer sensual, Libra busca una relación con una ferviente fascinación. Libra vive para el amor y el estilo. Leo es intrépido, brillante y muy animado. Tienen un nivel de compatiblidad muy alto.'),
+(79, 'Tierra + Aire', 'La compatibilidad de Libra con Virgo no es muy alta y para que funcione la relación ambos signos tendrán que transigir. No obstante, cuando funciona puede formarse una pareja muy equilibrada y muy especial, sobre todo cuando ambos logran convertir sus diferencias en un activo complementario para su pareja. '),
+(80, 'Aire + Aire', 'Cuando el estiloso Libra encuentra a otro Libra, la atracción es inmediata. El gusto atrae al gusto. La magia favorable de esta unión Aire - Aire tiene sus retos pero, una vez resueltos, los dos disfrutarán de una pareja comprensiva y un romance de por vida.'),
+(81, 'Agua + Aire', 'Una relación entre estos dos signos tiene la gran ventaja de ser una relación muy equilibrada porque la compatibilidad entre Escorpio y Libra es altísima. Libra es Aire y  Escorpio es Agua. Libra cuyo planeta es Venus representa el amor, la sensualidad y el placer. En cambio Escorpio está regido por Marte, que representa la acción, la estrategia y el ingenio; y por Plutón, el poder, el inframundo. '),
+(82, 'Aire + Fuego', 'La combinación de Libra, la Balanza, y Sagitario, el Arquero, es muy buena. Libra es el punto focal de la elegancia en el zodíaco. Regido por Venus, el planeta de amor y el placer sensual, Libra busca una relación con una ferviente fascinación. Libra vive para el amor y el estilo.'),
+(83, 'Tierra + Aire', 'No es la combinación más cómoda del Cosmos por varias razones, pero eso no significa que no puedan aprender a estar juntos y amarse mucho. De hecho, si aprenden a apreciar y respetar las fortalezas y debilidades del otro, los dos pueden llegar a ser mucho mejor persona. solo hará falta paciencia y comprensión, y quizás una Luna y un Ascendente bien colocados.'),
+(84, 'Aire + Aire', 'La compatibilidad entre Libra y Acuario es excelente.\r\nAmbos signos son sociables, les encanta conversar y disfrutan con reuniones y actos sociales. Los dos son muy extrovertidos y suelen tener muchos amigos. A los dos les gusta la independencia y por eso no será un problema dar y disfrutar de cierta libertad dentro de su relación.'),
+(85, 'Aire + Agua', 'Libra y Piscis son una combinación inusual, pero la atracción entre ambos puede ser intensa. El aire y el agua no se mezclan fácilmente, por lo que Libra tendrá que estar atento a las necesidades de Piscis, incluso aunque no siempre entienda cuáles son. No es de ninguna manera una combinación fácil, pero cuándo funciona, tiene una calidad especial.'),
+(86, 'Fuego + Agua', 'Es una combinación muy complicada y ambos signos deberán poner mucho de su parte, para que la relación funcione, debido a sus enormes diferencias entre sus carácteres. Sus planetas regentes, Marte y Saturno, son fuerzas diametralmente opuestas. '),
+(87, 'Tierra + Agua', 'La compatibilidad entre Escorpio y Tauro es más alta de lo que podría parecer. Tauro y Escorpio son signos zodiacales opuestos y por eso, a veces, se atraen mutuamente sin remedio. Su primer encuentro podría ser sencillamente increíble y a Tauro le podría sorprender la pasión, que despierta su presencia. Dada la conexión que existe entre Marte y Venus hay muchas probabilidades de que surja una fuerte atracción magnética entre los dos signos Tauro y Escorpio. '),
+(88, 'Aire + Agua', 'La compatibilidad entre Escorpio y Géminis es bastante baja y ambas partes de la relación deberán trabajar duramente para conseguir, que funcione. Si son lo suficientemente decididos, podría ser posible, pero deberán tener cuidado o se podrían ver envueltos en un escenario en el, que incluso dirigirse la palabra les resultaría difícil. '),
+(89, 'Agua + Agua', 'Las personas, que nacen bajo el mismo elemento suelen sentirse cómodas y atraerse entre sí. Este es el caso de Cáncer y Escorpio. Tiene un grado de compatibilidad alto. Ambos son sensibles, emocionales y cariñosos, pero Escorpio tiene un modo muy distinto de expresar el amor. El amor de Escorpio es exigente y pide mucho más a cambio de lo que da.\r\nLos Escorpio también tienden, en general, a ser menos constantes.'),
+(90, 'Agua + Fuego', 'La compatibilidad entre Escorpio y Leo es bastante baja. La atracción es enorme, pero el choque fuertes caracteres más. El romántico Leo, un Signo de Fuego, es autosuficiente y seguro y un amante ardiente, lleno de encanto personal y magnetismo físico. mmm... Un reto maravilloso. A pesar de su bravuconería, el intrépido pero sincero Leo se verá fascinado al instante por las estrategias de Escorpio y su legendario ingenio. '),
+(91, 'Tierra + Agua', 'La compatibilidad de Escorpio con Virgo es bastante alta, ya que la combinación de Tierra con Agua hace, que esta relación suela ser fructífera en muchos sentidos. Ambos signos conectan muy bien, porque Virgo es el signo de amistad y realización para Escorpio, mientras que Escorpio representa el signo de comunicación para Virgo.   '),
+(92, 'Aire + Aire', 'na relación entre estos dos signos tiene la gran ventaja de ser una relación muy equilibrada porque la compatibilidad entre Escorpio y Libra es altísima. Libra es Aire y  Escorpio es Agua. Libra cuyo planeta es Venus representa el amor, la sensualidad y el placer. En cambio Escorpio está regido por Marte, que representa la acción, la estrategia y el ingenio; y por Plutón, el poder, el inframundo. '),
+(93, 'Agua + Agua', 'La atracción sexual entre dos apasionados Escorpio es fuerte, pero la temperatura no puede ir siempre en aumento. Los dos son muy parecidos y, sin embargo, apenas se entienden mutuamente. La duplicidad del elemento Agua le imprime un profundo poder emocional y hace de lupa, que magnifica cada uno de los elementos de la compleja individualidad de ambos. '),
+(94, 'Agua + Fuego', 'Una combinación muy difícil porque mientras el aventurero Sagitario adora los cambios y la exploración de horizontes lejanos, asumiendo todo tipo de riesgos (físicos, emocionales y espirituales) para, a continuación, pasar al siguiente gran reto.'),
+(95, 'Tierra + Agua', 'Se trata de una combinación apasionada y fiel, y puede ser una de las mejores del Zodíaco. Incluso si no es una relación romántica, es probable, que los dos sean cariñosos mutuamente y se sientan muy cómodos con el contacto físico. Estos dos signos pueden ser amigos maravillosos, familiares, socios empresariales y compañeros.'),
+(96, 'Agua + Aire', 'La compatibilidad entre Escorpio y Acuario es bastante baja.\r\nAmbos tienen personalidades muy diferentes y su forma de enfocar la vida y las relaciones íntimas es muy distinto. Por otra parte, dónde sí se parecen es su actitud cabezota de imponerse al otro, querer tener siempre razón y las ganas de discutir. ¡Peligro! porque son actitudes, que les pueden llevar a la ruptura.'),
+(97, 'Agua + Agua', 'La atracción de Escorpio y Piscis es irresistible, una unión con todas las posibilidades de éxito. Los dos son apasionados y leales, por lo que es fácil que disfruten de un compañerismo natural. Escorpio es un Signo Fijo, por lo que una vez que se compromete, se entrega totalmente. '),
+(98, 'Fuego + Fuego', 'Tanto Aries como Sagitario son signos de Fuego, por lo que a esta combinación no le faltará nada de variedad y emoción, pudiendo ser, en ocasiones, explosiva. La relación despegará directamente desde su comienzo. Su grado de compatibilidad es muy alto.'),
+(99, 'Tierra + Fuego', 'La compatibilidad entre Sagitario y Tauro es bastante baja porque son signos muy diferentes. Tauro es práctico y se preocupa por lo que puede tocar y sentir (el mundo de las cosas reales). '),
+(100, 'Aire + Fuego', 'Esta combinación de energías planetarias resulta intrigante. Sagitario es el signo opuesto a Géminis y el que resulte bien o no dependerá de la perspectiva, que tomen ambos. '),
+(101, 'Agua + Fuego', 'El grado de compatibilidad entre Cáncer y Sagitario es más bien bajo. Aunque hay una posibilidad de que Cáncer y Sagitario experimenten una fuerte atracción al conocerse, la relación puede no estar destinada a funcionar a largo plazo. Cáncer es propenso a enamorarse perdidamente del fuerte carácter de Sagitario, pero una relación de amistad o profesional tiene más posibilidades de funcionar, que como pareja. '),
+(102, 'Fuego + Fuego', 'El intrépido Leo y el aventurero Sagitario forman una combinación romántica natural; también pueden ser los mejores amigos. Dos signos de Fuego juntos encenderán pasiones abrasadoras en el dormitorio, dado que ambos entienden instintivamente las necesidades más profundas del otro. Su compatibilidad es muy alta.'),
+(103, 'Tierra + Fuego', 'La compatibilidad de Sagitario con Virgo no es muy alta dadas las grandes diferencias, que existen entre estos dos signos. Mientras, que Virgo presta atención a los pequeños detalles, Sagitario tiende a centrarse en la visión global. '),
+(104, 'Aire + Fuego', 'La combinación de Libra, la Balanza, y Sagitario, el Arquero, es muy buena. Libra es el punto focal de la elegancia en el zodíaco. Regido por Venus, el planeta de amor y el placer sensual, Libra busca una relación con una ferviente fascinación. Libra vive para el amor y el estilo.'),
+(105, 'Agua + Fuego', 'Una combinación muy difícil porque mientras el aventurero Sagitario adora los cambios y la exploración de horizontes lejanos, asumiendo todo tipo de riesgos (físicos, emocionales y espirituales) para, a continuación, pasar al siguiente gran reto.'),
+(106, 'Fuego + Fuego', 'Dos Sagitarios juntos forman un equipo formidable. Algunos astrólogos piensan, que es la combinación perfecta y en muchas formas, es muy apropiada. Se pueden atraer con una conversación estimulante, dado que ambos tendrán intereses similares y cuándo a uno le apremie el impulso de empaquetar y partir a la aventura en busca de horizontes lejanos, el otro lo seguirá encantado.'),
+(107, 'Tierra + Fuego', 'El pendenciero Arquero no parece tener mucho en común con Capricornio, pero aún así puede ser una combinación razonablemente buena. Los dos tendrán, que aprender a apreciar sus diferencias antes de poder sentirse cómodos juntos, pero una vez hecho esto, puede ser un equipo muy exitoso. '),
+(108, 'Fuego + Aire', 'a compatibilidad entre Sagitario y Acuario es bastante alta y si ambos se esfuerzan un poco, lo más probable es que su relación sea larga y feliz.\r\nSon dos signos muy parecidos - extrovertidos, sociables y aventureros. Les encanta la diversión, son muy espontáneos, no son excesivamente emocionales o sentimentales y saben dar y disfrutar de cierta libertad dentro de la pareja. '),
+(109, 'Agua + Fuego', 'Piscis y Sagitario son complementarios y compatibles. Tanto el imaginativo Piscis como el aventurero Sagitario están regidos por Júpiter, el planeta de los sueños y amplios horizontes. Sagitario, como signo de Fuego, expresa el lado filosófico y viajero de Júpiter, pasando fácilmente de una escapada a otra, mientras Piscis, signo de Agua, tiene tendencia a ser introvertido y expresa el lado más profundo y espiritual de este maravilloso poder planetario. '),
+(110, 'Tierra + Fuego', 'Es una combinación muy complicada y su grado de compatibilidad es bajo. Ambos signos deberán poner mucho de su parte para que la relación funcione, debido a sus enormes diferencias entre sus carácteres. Sus planetas regentes, Marte y Saturno, son fuerzas diamétricamente opuestas.'),
+(111, 'Tierra + Tierra', 'La compatibilidad entre Capricornio y Tauro es muy alta y pueden esperar ser muy felices juntos. El sentido práctico de Capricornio se lleva bien con la actitud realista de Tauro. Su conexión inicial con Capricornio será buena y Tauro encontrará muchas similitudes con su pareja. '),
+(112, 'Tierra + Aire', 'La compatibilidad de Capricornio con Géminis es bastante baja, dada la forma tan distinta, que tienen de enfocar la vida. A ambos signos tendrán, que hacer un gran esfuerzo para que la relación funcione a largo plazo. '),
+(113, 'Tierra + Agua', 'La Compatibilidad entre Cáncer y Capricornio es már bien baja. A pesar de las importantes diferencias entre los signos de Cáncer y Capricornio, es posible que se establezca una relación entre los dos, aunque ambos deberán poner un poco de su parte. Mientras que los Cáncer son cariñosos y expresivos, a Capricornio le cuesta expresar sus sentimientos.'),
+(114, 'Tierra + Fuego', 'El león y la cabra son una pareja muy improbable, pero a veces esta combinación puede funcionar muy bien. Parece haber una conexión kármica entre ambos, especialmente si están conectados por una relación familiar. Si ambos dejan a un lado su orgullo y trabajan juntos por un fin común, podría ser una relación muy gratificante. Su grado de compatibilidad podrían ser bueno. '),
+(115, 'Tierra + Tierra', 'La compatibilidad de Capricornio con Virgo es muy alta gracias a una combinación de elementos similares, que da una buena base para su relación. Virgo tendrá una compenetración inmediata con Capricornio. Por algún motivo, Capricornio parece menos serio, para Virgo que para otros signos del Zodiaco. '),
+(116, 'Tierra + Aire', 'No es la combinación más cómoda del Cosmos por varias razones, pero eso no significa que no puedan aprender a estar juntos y amarse mucho. De hecho, si aprenden a apreciar y respetar las fortalezas y debilidades del otro, los dos pueden llegar a ser mucho mejor persona. solo hará falta paciencia y comprensión, y quizás una Luna y un Ascendente bien colocados.'),
+(117, 'Tierra + Fuego', 'El pendenciero Arquero no parece tener mucho en común con Capricornio, pero aún así puede ser una combinación razonablemente buena. Los dos tendrán, que aprender a apreciar sus diferencias antes de poder sentirse cómodos juntos, pero una vez hecho esto, puede ser un equipo muy exitoso. '),
+(118, 'Tierra + Tierra', 'Esta puede ser una combinación muy compatible, pero también podría adolecer del síndrome de \'demasiado buena\' . Si ambos tienen suficientes intereses diferentes como para evitar caer en la rutina y consiguen mantener un equilibrio sano de poder, podría ser una relación muy feliz.'),
+(119, 'Tierra + Aire', 'La compatibilidad entre Capricornio y Acuario puede ser bastante alta\r\n\r\nSi los dos logran que las importantes diferencias que existen entre ellos, se conviertan en un punto positivo de la pareja. Si no, la relación será muy tormentosa y es probable, que lejos de complementarse, los dos terminen completamente agotados. '),
+(120, 'Tierra + Agua', 'El dulce pez es una combinación excelente para Capricornio, aunque al principio pueda haber dudas. Piscis es un soñador y puede parecer frágil, pero a veces una sutil entereza se puede confundir con debilidad. Las fortalezas combinadas de ambos ayudan a compensar sus debilidades individuales, y juntos forman un equipo sólido y satisfactorio.'),
+(121, 'Tierra + Agua', 'Se trata de una combinación apasionada y fiel, y puede ser una de las mejores del Zodíaco. Incluso si no es una relación romántica, es probable, que los dos sean cariñosos mutuamente y se sientan muy cómodos con el contacto físico. Estos dos signos pueden ser amigos maravillosos, familiares, socios empresariales y compañeros.'),
+(1, '', ''),
+(122, 'Aire + Fuego', 'Aries y Acuario tienen mucho en común y un grado de compatibilidad muy alto. Ambos signos son independientes, humanitarios, optimistas y entusiastas. Les gustan las emociones fuertes, la valentía y carácter progresivo de los Acuario tienden a atraer mucho a los Aries. '),
+(123, 'Aire + Tierra', 'La compatibilidad entre Acuario y Tauro no es muy alta debido a las incompatibilidades, que existen entre ellos. Pero sí tiene muchas posibilidades siempre y cuando ambos estén dispuestos a esforzarse para que funcione.'),
+(124, 'Aire + Aire', 'La compatibilidad entre los signos Acuario y Géminis es muy alta, ya que ambos esperan sacar más o menos lo mismo de la vida. Tienen planteamientos muy parecidos e incluso a nivel intelectual son compatibles. Es una de las combinaciones más compatibles del zodiaco, porque la conexión kármica es muy fuerte. '),
+(125, 'Aire + Agua', 'La combinación de los signos Cáncer y Acuario presenta muchos retos en una pareja. La compatibilidad es baja a primera vista, aunque gracias a que ambos signos son muy persistentes, si hay suficientemente amor y disposición de esforzarse, una relación duradera es difícil, pero no imposible.'),
+(126, 'Aire + Fuego', 'La compatibilidad entre Leo y Acuario es alta.\r\nA los Acuario les gusta el calor, la generosidad y la energía de Leo mientras, que a los Leo les impresiona la capacidad intelectual y la seguridad de Acuario.\r\nLos dos signos son muy distintos, pero a pesar de sus diferencias logran atraerse e impresionarse. Son signos opuestos que se atraen o como ya se ha demostrado en Astrología, esto podría ser una ventaja en el caso de Leo y Acuario. '),
+(127, 'Tierra + Aire', 'La compatibilidad de Acuario con Virgo es una de las más bajas del Zodiaco y tendrá, que haber mucho amor para que esta relación tenga posibilidades a largo plazo. Nada es imposible y todo con esfuerzo se consigue, así que si esta es la combinación de su relación, ¡Manos a la obra! '),
+(128, 'Aire + Aire', 'La compatibilidad entre Libra y Acuario es excelente.\r\nAmbos signos son sociables, les encanta conversar y disfrutan con reuniones y actos sociales. Los dos son muy extrovertidos y suelen tener muchos amigos. A los dos les gusta la independencia y por eso no será un problema dar y disfrutar de cierta libertad dentro de su relación.\r\nAmbos signos son muy cariñosos'),
+(132, 'Aire + Fuego', 'La compatibilidad entre Sagitario y Acuario es bastante alta y si ambos se esfuerzan un poco, lo más probable es que su relación sea larga y feliz.\r\nSon dos signos muy parecidos, extrovertidos, sociables y aventureros. Les encanta la diversión, son muy espontáneos, no son excesivamente emocionales o sentimentales y saben dar y disfrutar de cierta libertad dentro de la pareja. '),
+(130, 'Aire + Aire', 'La compatibilidad entre dos Acuario es alta.\r\nYa que no hay ningún signo con mayor capacidad para comprender el signo y de no sentirse amenazado por su forma de ser tan distinta y singular.\r\nAcuario es extrovertido, sociable y le encanta formar parte de un grupo. También tiene un lado solitario e independiente, a veces siente la necesidad de estar solo consigo mismo. '),
+(131, 'Aire + Agua', 'La compatibilidad entre Piscis y Acuario no es muy alta.\r\nY para, que una relación de pareja sea duradera, tendrá que haber una base sólida de amor y comprensión, así como mucho interés por parte de ambos signos. Sin embargo, la compatibilidad para una relación de amigos es mayor.\r\nEs posible que Acuario sea incapaz de entregarse y mimar a Piscis tal como él necesita. Por otra parte, la confianza podría suponer un problema, sobre todo al principio de una relación, cuando ambos signos quieren compartir secretos de su pasado. '),
+(129, 'Aire + Agua', 'La compatibilidad entre Escorpio y Acuario es bastante baja.\r\nAmbos tienen personalidades muy diferentes y su forma de enfocar la vida y las relaciones íntimas es muy distinto. Por otra parte, dónde sí se parecen es su actitud cabezota de imponerse al otro, querer tener siempre razón y las ganas de discutir. ¡Peligro! porque son actitudes, que les pueden llevar a la ruptura.'),
+(133, 'Aire + Tierra', 'La compatibilidad entre Capricornio y Acuario puede ser bastante alta\r\n\r\nSi los dos logran que las importantes diferencias que existen entre ellos, se conviertan en un punto positivo de la pareja. Si no, la relación será muy tormentosa y es probable, que lejos de complementarse, los dos terminen completamente agotados. '),
+(134, 'Agua + Fuego', 'Una pareja Aries y Piscis es una combinación difícil con bastantes retos, porque a pesar de una fuerte atracción inicial, existen diferencias importantes entre estos dos signos, que tendrán que ser superadas para que una relación de pareja funcione a largo plazo. Si logran formar una pareja estable, es probable que sea una relación fuera de lo común.'),
+(135, 'Agua + Tierra', 'La compatibilidad entre Piscis y Tauro es muy buena aunque sobre todo desde el punto de vista de compañerismo y actividad social. Si una pareja Tauro-Piscis decide separarse, lo más seguro es que logren conservar una excelente amistad que puede incluso llegar a incomodar a futuras parejas. '),
+(136, 'Agua + Aire', 'La compatibilidad entre Piscis y Géminis no es una de las más altas de estos signos y ambos tendrán, que esforzarse para hacer, que la relación funcione. Sus elementos de aire y agua son muy distintos porque mientras, que el Aire está relacionado con la mente, el Agua está relacionado con las emociones.'),
+(137, 'Agua + Agua', 'Piscis y Cáncer tienen mucho en común, especialmente en cuanto a compatibilidad emocional. Ambos signos se entienden instintivamente entre sí y sienten las necesidades del otro. Ambos son cariñosos y dan apoyo a su pareja. '),
+(138, 'Agua + Fuego', 'Leo se sentirá atraído por el sexy, pero vulnerable, Piscis.\r\nPiscis también se siente atraído por el León, al percibir que Leo tiene un corazón cálido y una fuerza interior que puede estar ahí para él cuando los terrores de la noche acechen. Su compatibilidad y complementariedad pueden ser muy grandes.'),
+(139, 'Agua + Tierra', 'La compatibilidad de Piscis con Virgo es muy buena a pesar de una contradicción entre los dos signos. Son dos signos opuestos: algo que paradójicamente en Astrología se suele considerar como un indicador positivo de amor y matrimonio. Al mismo tiempo, sus enfoques de la vida son muy diferentes y sus personalidades también. Ambos signos son inconstantes y de humor variable'),
+(140, 'Agua + Aire', 'Libra y Piscis son una combinación inusual, pero la atracción entre ambos puede ser intensa. El aire y el agua no se mezclan fácilmente, por lo que Libra tendrá que estar atento a las necesidades de Piscis, incluso aunque no siempre entienda cuáles son. No es de ninguna manera una combinación fácil, pero cuándo funciona, tiene una calidad especial. '),
+(141, 'Agua + Agua', 'La atracción de Escorpio y Piscis es irresistible, una unión con todas las posibilidades de éxito. Los dos son apasionados y leales, por lo que es fácil que disfruten de un compañerismo natural. Escorpio es un Signo Fijo, por lo que una vez que se compromete, se entrega totalmente. '),
+(142, 'Agua + Fuego', 'Piscis y Sagitario son complementarios y compatibles. Tanto el imaginativo Piscis como el aventurero Sagitario están regidos por Júpiter, el planeta de los sueños y amplios horizontes. Sagitario, como signo de Fuego, expresa el lado filosófico y viajero de Júpiter, pasando fácilmente de una escapada a otra, mientras Piscis, signo de Agua, tiene tendencia a ser introvertido y expresa el lado más profundo y espiritual de este maravilloso poder planetario. '),
+(143, 'Agua + Tierra', 'El dulce pez es una combinación excelente para Capricornio, aunque al principio pueda haber dudas. Piscis es un soñador y puede parecer frágil, pero a veces una sutil entereza se puede confundir con debilidad. Las fortalezas combinadas de ambos ayudan a compensar sus debilidades individuales, y juntos forman un equipo sólido y satisfactorio.'),
+(144, 'Agua + Aire', 'Nivel de compatibilidad : ALto, se llevan muy bien :D.'),
+(145, 'Agua + Agua', 'Piscis, el Signo de los Peces, es un Signo de Agua. Dos peces juntos pueden crear un paraíso privado o un infierno en la tierra, dependiendo de si eligen nadar río abajo o contra corriente. Si bien los dos se sienten irresistiblemente atraídos el uno por el otro, ambos son propensos a perderse en sueños y fantasías. ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleta`
 --
 
 CREATE TABLE `galleta` (
@@ -32,7 +198,7 @@ CREATE TABLE `galleta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `galleta`
+-- Dumping data for table `galleta`
 --
 
 INSERT INTO `galleta` (`id`, `mensaje`) VALUES
@@ -80,7 +246,7 @@ INSERT INTO `galleta` (`id`, `mensaje`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `presentacion`
+-- Table structure for table `presentacion`
 --
 
 CREATE TABLE `presentacion` (
@@ -89,7 +255,7 @@ CREATE TABLE `presentacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `presentacion`
+-- Dumping data for table `presentacion`
 --
 
 INSERT INTO `presentacion` (`id`, `saludo`) VALUES
@@ -98,7 +264,7 @@ INSERT INTO `presentacion` (`id`, `saludo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `signo`
+-- Table structure for table `signo`
 --
 
 CREATE TABLE `signo` (
@@ -112,7 +278,7 @@ CREATE TABLE `signo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
 --
--- Volcado de datos para la tabla `signo`
+-- Dumping data for table `signo`
 --
 
 INSERT INTO `signo` (`id_signo`, `nombre`, `personalidad`, `color`, `elemento`, `simboliza`, `semanal`) VALUES
@@ -132,7 +298,7 @@ INSERT INTO `signo` (`id_signo`, `nombre`, `personalidad`, `color`, `elemento`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `signo_chino`
+-- Table structure for table `signo_chino`
 --
 
 CREATE TABLE `signo_chino` (
@@ -148,70 +314,74 @@ CREATE TABLE `signo_chino` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `signo_chino`
+-- Dumping data for table `signo_chino`
 --
 
 INSERT INTO `signo_chino` (`id`, `nombre`, `descripcion`, `planeta`, `elemento`, `hora_influencia`, `signo_equivalente`, `personalidad`, `signo_compatible`) VALUES
 (1, 'Cabra', 'se presenta dócil, suave y apresurada, le cuesta expresar sus verdaderas emociones, es difícil descubrir que es lo que pasa en su interior; por eso de repente puede convertirse en un mar de lagrimas sin razón aparente. Con gran tendencia a soñar despierta, necesita sentir apoyo y una guía para poder dedicarse a lo que verdaderamente le entusiasma, vagar en su mundo interior de fantasías. Insegura, necesita sentirse amada y en un ambiente protector. ', 'Saturno', 'Tierra', 'entre las 13:00pm y la 15:00pm', 'Cáncer', 'Creativo, generoso, dócil, intuitivo y modesto, también destacan su honestidad y sinceridad con algo de timidez; se puede confiar en su nobleza y ternura; en su interior son pesimistas, inseguras e introvertidas', 'La Liebre, el Gato o el Conejo, el Cerdo o el Jabalí y el Caballo'),
 (2, 'Caballo', 'Los caballos son los nómades del horóscopo chino, van de un lugar a otro, de proyecto en proyecto, necesita del movimiento y de espacios abiertos; no pueden resistirse al llamado interior de su espíritu libre y a su irrefrenable búsqueda de independencia y libertad.Utiliza cualquier estrategia desde contar chistes, hacerse el gracioso o destacar algún defecto de los presentes; cosa que le pude valer alguna mirada de reproche que ignorara sin culpa. Algunas veces resulta difícil soportarlo, debajo de su aparente diplomacia se esconde una personalidad egoísta e intolerante.', 'Marte', 'Fuego ', 'Junio', 'Géminis', 'Amable, entusiástico, independiente, inteligente, creativo, optimista, fuerte, asertivo, hablador, talentoso, alegre, activo, elocuente, aventurero, versátil, juguetón, alegre, animado, espíritu libre …', 'El Tigre y el Perro'),
-(3, 'Serpiente', 'Las personas nacidas bajo su influencia se las podría llamar "encantadoras de serpientes", dotadas de la sabiduría y elegancia en los movimientos de este animal, son excelentes mediadores, embajadores o músicos virtuosos. La energía de su naturaleza despierta su instinto escurridizo, alerta para descubrir recovecos insólitos en busca de lugares oscuros llenos de misterios. Solitaria, encamina sus planes con discreción y en silencio; su astucia y capacidad de análisis la llevan a estar siempre en el lugar adecuado para no perder las oportunidades. ', 'Marte', 'Fuego', 'entre la 9:00 y las 11:00 de la mañana', 'Piscis', 'Sabia, lógica, creativa, elegante, astuta, materialista, desconfiada, quisquillosa y organizada.', 'Buey o Búfalo y Gallo.'),
+(3, 'Serpiente', 'Las personas nacidas bajo su influencia se las podría llamar \"encantadoras de serpientes\", dotadas de la sabiduría y elegancia en los movimientos de este animal, son excelentes mediadores, embajadores o músicos virtuosos. La energía de su naturaleza despierta su instinto escurridizo, alerta para descubrir recovecos insólitos en busca de lugares oscuros llenos de misterios. Solitaria, encamina sus planes con discreción y en silencio; su astucia y capacidad de análisis la llevan a estar siempre en el lugar adecuado para no perder las oportunidades. ', 'Marte', 'Fuego', 'entre la 9:00 y las 11:00 de la mañana', 'Piscis', 'Sabia, lógica, creativa, elegante, astuta, materialista, desconfiada, quisquillosa y organizada.', 'Buey o Búfalo y Gallo.'),
 (4, 'Dragón', 'El Dragón simboliza el poder y la riqueza; es el signo del emperador de China; encantador y brillante, despide vitalidad, fuerza y atrae con magnetismo y extravagancia. Las personas nacidas bajo la influencia del Dragón cautivan por su carisma personal y están acompañadas de buena suerte. Se sienten especialmente atraídos por las cosas extrañas y exóticas. ', 'Saturno', 'Tierra', 'entre la 7:00 y las 9:00 de la mañana', 'Aries', 'ambicioso, carismático, noble, magnánimo y poderoso; también puede ser despiadado, arrogante, despótico e intolerante.', 'Rata y Mono'),
 (5, 'Conejo', 'La liebre algo perezosa, actúa con prudencia; es introvertida y reservada con sus cosas. Busca la comodidad y vivir rodeada de lujo, pero su falta de compromiso hace que deje pasar las oportunidades y no se arriesgue. No sirve para sacar las papas del fuego, las dificultades no son su fuerte y menos aun dirigir un equipo. Demasiado sensible para desarrollarse en ambientes competitivos o agresivos. Pero con cualidades innatas para la política y la disciplina; llena de gracia, por lo general es cultivada y educada; y tiene un gran sentido de la justicia.', 'Júpiter ', 'Madera', 'entre la 5:00 y las 7:00 de la mañana', 'Tauro', 'conservador, sensitivos, modestos, discretos, educados; por otro lado algo ingenuos, tímidos y diplomáticos. ', 'Cerdo o Jabalí y la Cabra o la Oveja'),
 (6, 'Tigre', 'Los tigres son personas que necesitan de la aventura, disfrutan plenamente de la vida, siempre que encuentren nuevos retos, desafíos y acontecimientos inesperados. Pero su energía apasionada y su verdadero amor a la vida es contagiosa y estimula.', 'Jupiter', 'Madera ', 'entre la 3:00 y las 5:00 de la mañana', 'Acuario', 'Rebelde, independiente, dinámico, apasionado, osado, impredecible, impulsivo, sincero, cariñoso, generoso, humanitario, impaciente, imprudente, irascible… ', 'Caballo, Perro y Cerdo o Jabalí.'),
-(7, 'Buey', 'El buey o Búfalo representa la prosperidad obtenida con el esfuerzo, la tenacidad y el trabajo. Refleja las características del animal que representa "el Buey"; paciente, incansable en el trabajo, capaz de llevar sobre sus espaldas grandes responsabilidades sin levantar una queja. Su organización y determinación en metas claras y precisas, hacen de él una fuerza imparable que se dirige con obstinación hacia sus objetivos, sorteando complicaciones y manteniendo el equilibrio interior fiel a sus metas ambiciosas. ', 'Saturno', 'Tierra', 'entre la 1:00 y las 3:00 de la mañana', ' Capricornio', 'Metódico, serio, paciente, tenaz, tranquilo, trabajador, ambicioso, tradicional, estable, practico, lógico, obstinado, rígido, intolerante… ', 'Rata, Serpiente y Gallo'),
+(7, 'Buey', 'El buey o Búfalo representa la prosperidad obtenida con el esfuerzo, la tenacidad y el trabajo. Refleja las características del animal que representa \"el Buey\"; paciente, incansable en el trabajo, capaz de llevar sobre sus espaldas grandes responsabilidades sin levantar una queja. Su organización y determinación en metas claras y precisas, hacen de él una fuerza imparable que se dirige con obstinación hacia sus objetivos, sorteando complicaciones y manteniendo el equilibrio interior fiel a sus metas ambiciosas. ', 'Saturno', 'Tierra', 'entre la 1:00 y las 3:00 de la mañana', ' Capricornio', 'Metódico, serio, paciente, tenaz, tranquilo, trabajador, ambicioso, tradicional, estable, practico, lógico, obstinado, rígido, intolerante… ', 'Rata, Serpiente y Gallo'),
 (8, 'Rata', 'Es el primer signo o animal del horóscopo chino, ha ganado el primer puesto gracias a su astucia e inteligencia. De naturaleza escurridiza con gran raciocinio e intuición sabe sacar partido de cualquier situación. Con cualidades de líder, pionero y conquistador; utiliza su embriagador encanto para guiar a los otros según sus objetivos. Nunca muestra sus armas, es carismática y apasionada y se lleva la palma en el arte del disimulo. ', 'Mercurio', 'Agua', 'entre las 23:00 y la 1:00 de la mañana', 'Sagitario', 'Disciplinada, meticulosa, sistemática, sociable, inteligente, astuta, superambiciosa, cruel, intolerante, egoísta, trabajadora, ahorrativa…', 'Buey o Búfalo, Mono y Dragón.'),
 (9, 'Cerdo', 'Los Cerdos o Jabalí son considerados los más generosos y honestos de todos los animales del horóscopo chino. Demasiado crédulo, puede ser embaucado con facilidad, no soporta la mentira, las injusticias y la mala fe. Amigo de sus amigos, es comprensivo y tolerante. Idealista le encanta el dinero, pero para gastarlo en su caprichos en compañía de amigos y familiares. ', 'Mercurio', 'Tierra', 'entre las 21:00 y las 23:00 de la noche', 'Escorpion', 'Tolerante, sensible, optimista, honesto, popular, afortunado, fiel, comprensivo y con sentido del humor ', 'La Liebre - Gato - Conejo y la Cabra u Oveja.'),
 (10, 'Perro', 'a persona nacida bajo la influencia de este animal es altruista y con gran empatía; especialmente con los más necesitados o con aquellos que han sufrido algún tipo de injusticia, reacciona con rapidez y valentía. Sus amigos saben que pueden confiar en él, nadie más apropiado para guardar confidencias o permanecer al pie del cañón frente a una crisis. Los Perros nacieron para brindar felicidad, apoyo y consejos.', 'Saturno', 'Tierra ', 'entre las 19:00 y las 21:00 de la tarde', 'Libra', 'Leal, honesto, modesto, elocuente, inteligente, versátil, juguetón, bondadoso, fiel, obediente, instintivo y organizador...', 'El Caballo y el Tigre'),
-(11, 'Gallo', 'El Gallo como jefe supremo del corral es orgulloso (pero de corazón blando), seguro de sí mismo, vanidoso y autoritario. Su lema es ante todo lealtad "llamar las cosas por su nombre", ser francos, abiertos y sinceros, siempre dirán la verdad y mantendrán la palabra dada. Persigue el respeto y la admiración, ante un talante arrollador se esconde un embustero que disfraza su verdadera naturaleza, teme que descubran sus puntos débiles.', 'Venus', 'Metal', 'entre la 17:00 y las 19:00 de la tarde', 'Virgo', 'Ingenioso, valiente, leal, trabajador, talentoso y generoso; también pueden ser orgullosos, curiosos, románticos y les encanta el lujo… ', 'Buey o Búfalo y Serpiente.'),
+(11, 'Gallo', 'El Gallo como jefe supremo del corral es orgulloso (pero de corazón blando), seguro de sí mismo, vanidoso y autoritario. Su lema es ante todo lealtad \"llamar las cosas por su nombre\", ser francos, abiertos y sinceros, siempre dirán la verdad y mantendrán la palabra dada. Persigue el respeto y la admiración, ante un talante arrollador se esconde un embustero que disfraza su verdadera naturaleza, teme que descubran sus puntos débiles.', 'Venus', 'Metal', 'entre la 17:00 y las 19:00 de la tarde', 'Virgo', 'Ingenioso, valiente, leal, trabajador, talentoso y generoso; también pueden ser orgullosos, curiosos, románticos y les encanta el lujo… ', 'Buey o Búfalo y Serpiente.'),
 (12, 'Mono', 'ersátil y travieso, lo encontramos desempeñando profesiones como la de actores, investigadores, creativos o inventores. Encierra grandes talentos, de mente ágil e inteligente, su naturaleza creativa y excitante curiosidad le convierte en grandes genios de la improvisación. Capta lo que pasa a su alrededor con celeridad, de facilidad de palabra, puede expresarse con audacia y sorprender con sus salidas inspiradoras. Eficaz y practico a la hora de poner en acción los más grandes proyectos. ', 'Venus', 'Metal ', 'entre la 15:00 y las 17:00 de la tarde', 'Leo', 'Inteligente, ingenioso, versátil, noble, generoso e independiente, en su lado más áspero puede mostrarse cínico, inquieto, infiel, voluble…', 'La Rata , el Dragón y el Gallo');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `galleta`
+-- Indexes for table `galleta`
 --
 ALTER TABLE `galleta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `presentacion`
+-- Indexes for table `presentacion`
 --
 ALTER TABLE `presentacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `signo`
+-- Indexes for table `signo`
 --
 ALTER TABLE `signo`
   ADD PRIMARY KEY (`id_signo`);
 
 --
--- Indices de la tabla `signo_chino`
+-- Indexes for table `signo_chino`
 --
 ALTER TABLE `signo_chino`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `galleta`
+-- AUTO_INCREMENT for table `galleta`
 --
 ALTER TABLE `galleta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
--- AUTO_INCREMENT de la tabla `signo`
+-- AUTO_INCREMENT for table `signo`
 --
 ALTER TABLE `signo`
   MODIFY `id_signo` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
--- AUTO_INCREMENT de la tabla `signo_chino`
+-- AUTO_INCREMENT for table `signo_chino`
 --
 ALTER TABLE `signo_chino`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

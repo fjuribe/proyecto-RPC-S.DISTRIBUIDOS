@@ -14,8 +14,10 @@
 char **
 calculadora_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 {
-	static char * result;
 
+	 system("clear");
+	static char * result;
+   
 	/***************************/
       int d,m;
       d=argp->d;
@@ -172,6 +174,7 @@ calculadora_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 char **
 horoscopo_semana_1_svc(int *argp, struct svc_req *rqstp)
 {
+	 system("clear");
 	static char * result;
 	int a;
 	a=*argp;
@@ -581,22 +584,3528 @@ case 7:
 }
 
 char **
-compatibilidad_horoscopo_1_svc(int *argp, struct svc_req *rqstp)
+compatibilidad_horoscopo_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 {
+	 system("clear");
 	static char * result;
-    //int respt,a;
-	//a=*argp;
-	//char resultado[9999];
+	int signo1,signo2;
+	signo1=argp->d;
+	signo2=argp->m;
+	char resultado[9999];
 	/*
 	 * insert server code here
 	 */
+  /******************conexion**********************/
+	MYSQL *conn,mysql; /* variable de conexión para MySQL */
+	MYSQL_RES *res; /* variable que contendra el resultado de la consuta */
+	MYSQL_ROW row; /* variable que contendra los campos por cada registro consultado */
+	char *server = "127.0.0.1"; /*direccion del servidor 127.0.0.1, localhost o direccion ip */
+	char *user = "root"; /*usuario para consultar la base de datos */
+	char *password = ""; /* contraseña para el usuario en cuestion */
+	char *database = "horoscopo"; /*nombre de la base de datos a consultar */
+	conn = mysql_init(&mysql); /*inicializacion a nula la conexión */
+	mysql_options(&mysql, MYSQL_SET_CHARSET_NAME, "utf8");
+	mysql_options(&mysql, MYSQL_INIT_COMMAND, "SET NAMES utf8");
 
-	return &result;
+	/* conectar a la base de datos */
+	if (!mysql_real_connect(&mysql, server, user, password, database, 0, NULL, 0))
+	{ /* definir los parámetros de la conexión antes establecidos */
+		fprintf(stderr, "%s\n", mysql_error(conn)); /* si hay un error definir cual fue dicho error */
+		exit(1);
+	}
+/*conexion a la base de datos*/
+if (signo1==1 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=1"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=2"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=3"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=4"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=5"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=6"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=7"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=8"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=9"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=11"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=12"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==1 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=13"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=14"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=15"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=16"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=17"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=18"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=19"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=20"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=21"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=22"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=23"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=24"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==2 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=25"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=26"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=27"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=28"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=29"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=30"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=31"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=32"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=33"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=34"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=35"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=36"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==3 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=37"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=38"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=39"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=40"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=41"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=42"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=43"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=44"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=45"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=46"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=47"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4&& signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=48"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=49"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==4 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=50"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=51"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=52"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=53"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=54"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=55"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=56"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=57"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=58"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=59"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=60"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=61"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==5 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=62"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=63"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=64"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=65"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=66"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=67"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=68"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=69"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=70"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=71"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=72"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=73"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==6 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=74"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=75"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=76"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=77"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=78"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=79"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=79"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=80"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=81"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=82"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=83"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=84"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==7 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=85"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=86"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=87"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=88"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=89"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=90"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=91"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=92"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=93"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=94"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=95"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=96"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==8 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=97"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=98"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=99"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=100"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=101"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=102"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=103"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=104"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=105"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=106"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=107"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=108"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==9 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=109"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=110"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=111"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=112"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=113"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=114"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=115"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=116"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=117"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=118"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=119"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=120"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==10 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=121"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=122"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=123"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=124"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=125"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=126"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=127"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=128"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=129"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=130"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=131"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=132"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==11 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=133"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==1)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=134"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==2)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=135"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==3)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=136"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==4)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=137"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==5)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=138"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==6)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=139"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==7)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=140"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==8)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=141"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==9)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=142"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==10)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=143"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==11)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=144"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
+}else if (signo1==12 && signo2==12)
+{
+
+	/*******enviar consulta sql************/
+	if (mysql_query(conn, "select elementos, analisis from comparativa where id_comp=145"))
+	{ /* definicion de la consulta y el origen de la conexion */
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		exit(1);
+	}
+   
+     res=mysql_use_result(conn);
+     
+     //obtiene los resultados
+    if((row=mysql_fetch_row(res))!=NULL){
+
+
+        strcat(resultado, "\nElemento: ");
+		strcat(resultado, row[0]);
+        strcat(resultado, "\nAnalisis: ");
+		strcat(resultado, row[1]);
+    }
+    mysql_free_result(res);
+	mysql_close(conn);
+	/***************************************/
 }
+
+ 	result=resultado;
+	return &result;
+
+	}
+
 
 char **
 horoscopo_chino_1_svc(struct Datosentrada *argp, struct svc_req *rqstp)
 {
+	 system("clear");
 	static char * result;
 	int a;
 	a=argp->a;

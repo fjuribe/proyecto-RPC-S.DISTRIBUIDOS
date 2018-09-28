@@ -33,8 +33,8 @@ extern  char ** calculadora_horoscopo_1_svc(struct Datosentrada *, struct svc_re
 extern  char ** horoscopo_semana_1(int *, CLIENT *);
 extern  char ** horoscopo_semana_1_svc(int *, struct svc_req *);
 #define compatibilidad_horoscopo 3
-extern  char ** compatibilidad_horoscopo_1(int *, CLIENT *);
-extern  char ** compatibilidad_horoscopo_1_svc(int *, struct svc_req *);
+extern  char ** compatibilidad_horoscopo_1(struct Datosentrada *, CLIENT *);
+extern  char ** compatibilidad_horoscopo_1_svc(struct Datosentrada *, struct svc_req *);
 #define horoscopo_chino 4
 extern  char ** horoscopo_chino_1(struct Datosentrada *, CLIENT *);
 extern  char ** horoscopo_chino_1_svc(struct Datosentrada *, struct svc_req *);
